@@ -1,0 +1,102 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01gTcRtBZuoFXBlNuQI7zEmmAnqCVorAR",
+    "name": "Webex Teams - Create Message",
+    "title": "Webex Teams - Create Message",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "text",
+          "type": "datatype.string",
+          "description": "The message, in plain text. If markdown is specified this parameter may be optionally used to provide alternate text for UI clients that do not support rich text. The maximum message length is 7439 bytes."
+        },
+        "unique_name": "variable_workflow_01gTFg1fRL21zNoOOF4IEJnlWP6L22bIE",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "scope": "input",
+          "name": "authorization",
+          "type": "datatype.secure_string",
+          "description": "Use personal access token withot bearer\n"
+        },
+        "unique_name": "variable_workflow_01gTeU4z6cjWY2gp161khRjaSifeGXe6V",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "roomId",
+          "type": "datatype.string",
+          "description": "The room ID of the message."
+        },
+        "unique_name": "variable_workflow_01gTF1s1zhiADMytSEjIrF4uhinkhtbhp",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "atomic_group": "AO Demo Adapter",
+        "is_atomic": true
+      },
+      "delete_workflow_instance": false,
+      "description": "Post a message to webex teams rooms using roomId \u0026 personal token",
+      "display_name": "Webex Teams - Create Message",
+      "favorite": false,
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01gTfyB6HJ4IOLTAFLm4E8WGtOCN1KSy9",
+        "name": "HTTP Request",
+        "title": "Create a Message",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "application/json",
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"roomId\": \"$workflow.definition_workflow_01gTcRtBZuoFXBlNuQI7zEmmAnqCVorAR.input.variable_workflow_01gTF1s1zhiADMytSEjIrF4uhinkhtbhp$\",\n  \"text\": \"$workflow.definition_workflow_01gTcRtBZuoFXBlNuQI7zEmmAnqCVorAR.input.variable_workflow_01gTFg1fRL21zNoOOF4IEJnlWP6L22bIE$\"\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $workflow.definition_workflow_01gTcRtBZuoFXBlNuQI7zEmmAnqCVorAR.input.variable_workflow_01gTeU4z6cjWY2gp161khRjaSifeGXe6V$"
+            }
+          ],
+          "display_name": "Create a Message",
+          "method": "POST",
+          "relative_url": "messages",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
