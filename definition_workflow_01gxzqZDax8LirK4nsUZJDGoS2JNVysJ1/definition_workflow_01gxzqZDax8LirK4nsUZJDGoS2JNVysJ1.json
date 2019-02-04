@@ -1,0 +1,60 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01gxzqZDax8LirK4nsUZJDGoS2JNVysJ1",
+    "name": "Simple Performence Test - Basic",
+    "title": "Simple Performence Test - Basic",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "V1",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_01gxzVC1U6NJqyl42zJ4buFPzIM0xXqXR",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Simple Performence Test - Basic",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01gxzsn67s4GyErtiF5Ya9rHCXp4G8pHb",
+        "name": "Set Variables",
+        "title": "Set Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables",
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01gxzqZDax8LirK4nsUZJDGoS2JNVysJ1.output.variable_workflow_01gxzVC1U6NJqyl42zJ4buFPzIM0xXqXR$",
+              "variable_value_new": "$workflow.definition_workflow_01gxzqZDax8LirK4nsUZJDGoS2JNVysJ1.output.instance_id$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
